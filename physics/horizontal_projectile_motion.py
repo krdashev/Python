@@ -43,27 +43,6 @@ def check_args(init_velocity: float, angle: float) -> None:
 
 
 def horizontal_distance(init_velocity: float, angle: float) -> float:
-    """
-    Returns the horizontal distance that the object cover
-    Formula:
-            v_0^2 * sin(2 * alpha)
-            ---------------------
-                   g
-    v_0 - initial velocity
-    alpha - angle
-    >>> horizontal_distance(30, 45)
-    91.77
-    >>> horizontal_distance(100, 78)
-    414.76
-    >>> horizontal_distance(-1, 20)
-    Traceback (most recent call last):
-        ...
-    ValueError: Invalid velocity. Should be a positive number.
-    >>> horizontal_distance(30, -20)
-    Traceback (most recent call last):
-        ...
-    ValueError: Invalid angle. Range is 1-90 degrees.
-    """
     check_args(init_velocity, angle)
     radians = angle_to_radians(2 * angle)
     return round(init_velocity**2 * sin(radians) / g, 2)
